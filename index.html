@@ -1,206 +1,752 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aryan Isaac Bhobe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<title>Aryan Bhobe | AI & Data Science</title>
+    :root {
+      --white: #ffffff;
+      --off-white: #fafafa;
+      --light-gray: #f4f4f5;
+      --rule: #e4e4e7;
+      --muted: #a1a1aa;
+      --body: #3f3f46;
+      --strong: #18181b;
+      --accent: #1e3a5f;
+      --accent-light: #eef2f7;
+      --accent-mid: #3b6ea5;
+    }
 
-<link rel="stylesheet" href="style.css">
+    html { scroll-behavior: smooth; }
 
+    body {
+      background: var(--white);
+      color: var(--body);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout */
+    .wrapper {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--off-white);
+      border-right: 1px solid var(--rule);
+      padding: 48px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .avatar {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: var(--light-gray);
+      border: 1px solid var(--rule);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 28px;
+      color: var(--muted);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .sidebar-name {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--strong);
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-role {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .contact-list {
+      width: 100%;
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .contact-list li { margin-bottom: 2px; }
+
+    .contact-list a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--body);
+      text-decoration: none;
+      transition: background 0.15s;
+      overflow: hidden;
+    }
+
+    .contact-list a:hover { background: var(--light-gray); color: var(--strong); }
+
+    .contact-list svg { width: 13px; height: 13px; flex-shrink: 0; color: var(--muted); }
+
+    .contact-list .link-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sidebar-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--rule);
+      margin-bottom: 20px;
+    }
+
+    .cv-group { width: 100%; display: flex; flex-direction: column; gap: 8px; }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { background: #162c48; }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--accent);
+      border: 1px solid var(--rule);
+    }
+
+    .btn-secondary:hover { background: var(--accent-light); border-color: var(--accent-mid); }
+
+    .btn svg { width: 13px; height: 13px; }
+
+    .sidebar-foot {
+      margin-top: auto;
+      padding-top: 24px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Main content */
+    .main {
+      padding: 56px 60px 80px;
+      max-width: 760px;
+    }
+
+    /* Section */
+    .section { margin-bottom: 52px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--strong);
+      white-space: nowrap;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* About */
+    .about-text {
+      font-size: 15px;
+      color: var(--body);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* Experience */
+    .exp-list { display: flex; flex-direction: column; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .exp-item:first-child { border-top: 1px solid var(--rule); }
+
+    .exp-company {
+      font-weight: 600;
+      color: var(--strong);
+      font-size: 15px;
+    }
+
+    .exp-date {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 3px;
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .exp-role {
+      font-size: 13px;
+      color: var(--muted);
+      grid-column: 1;
+      grid-row: 2;
+      margin-bottom: 8px;
+    }
+
+    .exp-desc {
+      font-size: 13.5px;
+      color: var(--body);
+      line-height: 1.65;
+      grid-column: 1 / -1;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 32px;
+    }
+
+    .skill-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .tag {
+      font-size: 12px;
+      color: var(--body);
+      background: var(--light-gray);
+      border: 1px solid var(--rule);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    /* Education */
+    .edu-item { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+    .edu-item:first-child { border-top: 1px solid var(--rule); }
+
+    .edu-school {
+      font-weight: 600;
+      color: var(--strong);
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .edu-degree { font-size: 13.5px; color: var(--body); margin-bottom: 4px; }
+    .edu-meta { font-size: 12.5px; color: var(--muted); }
+
+    /* Project toggle */
+    .tab-bar {
+      display: inline-flex;
+      background: var(--light-gray);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 3px;
+      margin-bottom: 24px;
+      gap: 2px;
+    }
+
+    .tab-btn {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 18px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .tab-btn.active {
+      background: var(--white);
+      color: var(--strong);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .tab-btn:hover:not(.active) { color: var(--body); }
+
+    /* Project cards */
+    .project-list { display: flex; flex-direction: column; }
+
+    .project-card {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .project-card:first-child { border-top: 1px solid var(--rule); }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .project-name {
+      font-weight: 600;
+      color: var(--strong);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .project-badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent-mid);
+      background: var(--accent-light);
+      border: 1px solid #c8d9ef;
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .project-desc {
+      font-size: 13.5px;
+      color: var(--body);
+      line-height: 1.65;
+      margin-bottom: 12px;
+      max-width: 600px;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .project-links { display: flex; gap: 16px; }
+
+    .project-links a {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent-mid);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.15s;
+    }
+
+    .project-links a:hover { color: var(--accent); }
+    .project-links a svg { width: 12px; height: 12px; }
+
+    .hidden { display: none; }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .wrapper { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; width: 100%; border-right: none; border-bottom: 1px solid var(--rule); flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 32px 20px; }
+      .sidebar-foot { display: none; }
+      .main { padding: 32px 20px 60px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-date { grid-column: 1; grid-row: auto; }
+    }
+  </style>
 </head>
-
-
 <body>
+<div class="wrapper">
 
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="avatar">
+      <!-- Replace with your headshot: <img src="headshot.jpg" alt="Aryan Isaac Bhobe"> -->
+      AB
+    </div>
 
-<header>
+    <div class="sidebar-name">Aryan Isaac Bhobe</div>
+    <div class="sidebar-role">CS &amp; AI · University of Bath<br>Quant Finance · Machine Learning</div>
 
-<h1>Aryan Bhobe</h1>
+    <ul class="contact-list">
+      <li>
+        <a href="mailto:bhobe.ai@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          <span class="link-text">bhobe.ai@gmail.com</span>
+        </a>
+      </li>
+      <li>
+        <a href="tel:+447473967442">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="link-text">+44 7473967442</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/isaac-aryan" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span class="link-text">github.com/isaac-aryan</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/aryanisaacbhobe/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span class="link-text">aryanisaacbhobe</span>
+        </a>
+      </li>
+    </ul>
 
-<h2>
-Computer Science & Artificial Intelligence
-</h2>
+    <div class="sidebar-divider"></div>
 
-<p>
-Machine Learning | Deep Learning | Data Science | Quantitative Modelling
-</p>
+    <div class="cv-group">
+      <a class="btn btn-primary" href="AryanBhobe_CV.pdf" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        View CV
+      </a>
+      <a class="btn btn-secondary" href="AryanBhobe_CV.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV
+      </a>
+    </div>
 
+    <div class="sidebar-foot">
+      University of Bath · 2027<br>First Class Honours
+    </div>
+  </aside>
 
-<div class="links">
+  <!-- MAIN -->
+  <main class="main">
 
-<a href="assets/CV.pdf">CV</a>
+    <!-- About -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p class="about-text">
+        Final-year Computer Science &amp; Artificial Intelligence student at the University of Bath,
+        building at the intersection of quantitative finance and machine learning. I have industry
+        experience in ML research, deep learning engineering, and applied data science across
+        pharmaceutical research and financial services. I am targeting roles in financial data science,
+        quantitative analytics, and risk technology.
+      </p>
+    </section>
 
-<a href="https://github.com/">GitHub</a>
+    <!-- Experience -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="exp-list">
 
-<a href="https://linkedin.com/">LinkedIn</a>
+        <div class="exp-item">
+          <div class="exp-company">Accenture</div>
+          <div class="exp-date">Jun 2026 – Sep 2026</div>
+          <div class="exp-role">AI &amp; Data Summer Analyst · London</div>
+          <p class="exp-desc">Deploying ML and agentic AI solutions for a financial services client, developing data pipelines and predictive models in Python and SQL, and contributing to AI and data strategy for a global banking client.</p>
+        </div>
 
+        <div class="exp-item">
+          <div class="exp-company">Merck Sharp &amp; Dohme (MSD)</div>
+          <div class="exp-date">Jun 2025 – Jun 2026</div>
+          <div class="exp-role">Machine Learning Scientist · London</div>
+          <p class="exp-desc">Led independent ML research on a 550k-sample clinical dataset, applying unsupervised learning with MCA dimensionality reduction on HPC/GPU infrastructure. Designed model selection frameworks using ARI cross-agreement, BIC, silhouette scoring, and bootstrap resampling. Engineered reproducible ML and proteomics QC pipelines adopted as the departmental standard. Contributed findings to a poster at an international neuroscience symposium in Boston.</p>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-company">Spookfish Innovations</div>
+          <div class="exp-date">Jul 2024 – Sep 2024</div>
+          <div class="exp-role">Deep Learning Engineer Intern · Bengaluru, India</div>
+          <p class="exp-desc">Led model selection across instance segmentation architectures (YOLOv9, RTMDet, Mask R-CNN) for a real-time ad insertion system. Deployed a real-time inference engine integrating OpenCV with PyTorch for frame-accurate ad composition.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school">University of Bath</div>
+        <div class="edu-degree">B.Sc (Hons) Computer Science &amp; Artificial Intelligence &nbsp;·&nbsp; Oct 2023 – Jul 2027</div>
+        <div class="edu-meta">First Class Honours (1:1) &nbsp;·&nbsp; Finance &amp; Risk Management, Bayesian ML, Reinforcement Learning, NLP, Probability &amp; Statistics</div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="skills-grid">
+        <div>
+          <div class="skill-label">Languages</div>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">SQL</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-label">AI &amp; Machine Learning</div>
+          <div class="tag-row">
+            <span class="tag">PyTorch</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">JAX</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-label">Quantitative &amp; Statistical</div>
+          <div class="tag-row">
+            <span class="tag">statsmodels</span>
+            <span class="tag">SciPy</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">SHAP</span>
+            <span class="tag">Matplotlib</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-label">Tools &amp; Platforms</div>
+          <div class="tag-row">
+            <span class="tag">AWS</span>
+            <span class="tag">GCP</span>
+            <span class="tag">Git</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Tableau</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="showTab('personal', this)">Personal</button>
+        <button class="tab-btn" onclick="showTab('university', this)">University</button>
+      </div>
+
+      <!-- Personal Projects -->
+      <div id="personal" class="project-list">
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">CDS Spread Modelling with Support Vector Regression</div>
+            <span class="project-badge">Quant Finance</span>
+          </div>
+          <p class="project-desc">End-to-end SVR pipeline estimating 5-year Credit Default Swap spread proxies across 34 US companies (2018–2023), with features sourced from the FRED API and Yahoo Finance. Achieved R²=0.849 on a temporally stratified test set. Walk-forward validation across 16 quarterly folds identified a 4.6× performance degradation during COVID-19 stress quarters, quantifying model limits under regime change.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">pandas</span>
+              <span class="tag">FRED API</span>
+              <span class="tag">SHAP</span>
+            </div>
+            <div class="project-links">
+              <a href="#">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Report
+              </a>
+              <a href="#">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">Equity Volatility Forecasting: GARCH vs. ML under Regime Shifts</div>
+            <span class="project-badge">Quant Finance</span>
+          </div>
+          <p class="project-desc">1-day-ahead SPY variance forecasting pipeline across 13 years, comparing GARCH(1,1), EGARCH, GJR-GARCH, and GARCH-t against XGBoost and Random Forest via 6-fold walk-forward backtesting. Random Forest achieved 14% lower RMSE than best GARCH (Diebold-Mariano confirmed), but GARCH-t outperformed all ML models on QLIKE loss by 35× during crisis regimes. SHAP analysis identified VIX as the dominant predictive feature.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">statsmodels</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">SHAP</span>
+            </div>
+            <div class="project-links">
+              <a href="#">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Report
+              </a>
+              <a href="#">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">European Options Pricing Library</div>
+            <span class="project-badge">Quant Engineering</span>
+          </div>
+          <p class="project-desc">C++ library implementing Black-Scholes, binomial trees, and Monte Carlo simulation for pricing European and American options. Computes option Greeks (delta, gamma, vega) with object-oriented design and smart pointers. Validated against analytical benchmarks across a range of strike prices and volatility parameters.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag">C++</span>
+              <span class="tag">CMake</span>
+              <span class="tag">Monte Carlo</span>
+              <span class="tag">Black-Scholes</span>
+            </div>
+            <div class="project-links">
+              <a href="#">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- University Projects -->
+      <div id="university" class="project-list hidden">
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">Convolutional Autoencoder for Lossy Image Compression</div>
+            <span class="project-badge">Deep Learning</span>
+          </div>
+          <p class="project-desc">Designed and trained a convolutional autoencoder for lossy image compression, exploring the tradeoff between compression ratio and reconstruction quality. [Placeholder — update with architecture details, dataset, PSNR/SSIM results, and codec comparisons.]</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">CNN</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">Bayesian CNN for Diabetic Retinopathy Diagnosis</div>
+            <span class="project-badge">Research Paper</span>
+          </div>
+          <p class="project-desc">Research paper on Bayesian convolutional neural networks for diabetic retinopathy classification from retinal fundus images, with a focus on uncertainty quantification for clinical decision support. [Placeholder — update with dataset, architecture, accuracy/AUC results, and calibration analysis.]</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Bayesian DL</span>
+              <span class="tag">Medical Imaging</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Paper</a>
+              <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">Forest Fire Spread Modelling with Regression ML</div>
+            <span class="project-badge">Research Poster</span>
+          </div>
+          <p class="project-desc">Research poster modelling forest fire spread dynamics using regression-based machine learning, analysing environmental and meteorological features as predictors of fire behaviour. [Placeholder — update with dataset, models, findings, and evaluation metrics.]</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Regression</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Poster</a>
+              <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
 </div>
 
-</header>
-
-
-
-<section>
-
-<h2>About</h2>
-
-<p>
-Final-year Computer Science & Artificial Intelligence student at the University of Bath,
-with experience in machine learning research, deep learning engineering, and applied data
-science across healthcare, computer vision, and financial modelling.
-</p>
-
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>Experience</h2>
-
-
-<div class="card">
-
-<h3>AI & Data Analyst Intern</h3>
-
-<p>
-Building AI solutions, working with data pipelines, machine learning models,
-and client-focused analytics.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Machine Learning Intern — Intelligent Vision Systems</h3>
-
-<p>
-Developed computer vision models using PyTorch, OpenCV, YOLO, and MMDetection.
-Worked on instance segmentation and object detection pipelines.
-</p>
-
-</div>
-
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>Projects</h2>
-
-
-
-<div class="card">
-
-<h3>Football Broadcast Computer Vision</h3>
-
-<p>
-Instance segmentation system for sports broadcast advertising replacement.
-</p>
-
-<p>
-<b>Tech:</b>
-YOLOv9 | PyTorch | OpenCV | MMDetection
-</p>
-
-
-<a href="assets/projects/yolo-report.pdf">
-View Report →
-</a>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>Quantitative Finance Machine Learning</h3>
-
-<p>
-Machine learning models for financial time-series prediction and feature engineering.
-</p>
-
-
-<p>
-<b>Tech:</b>
-Python | XGBoost | Time Series
-</p>
-
-
-<a href="assets/projects/finance-report.pdf">
-View Report →
-</a>
-
-
-</div>
-
-
-
-
-
-<div class="card">
-
-<h3>Medical Image Segmentation</h3>
-
-<p>
-Deep learning segmentation model inspired by U-Net architecture for healthcare imaging.
-</p>
-
-
-<p>
-<b>Tech:</b>
-PyTorch | U-Net | Computer Vision
-</p>
-
-
-<a href="assets/projects/medical-ai-report.pdf">
-View Report →
-</a>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>Contact</h2>
-
-<p>
-Email: your.email@example.com
-</p>
-
-</section>
-
-
-
-<footer>
-
-© 2026 Aryan Bhobe
-
-</footer>
-
-
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.project-list').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.remove('hidden');
+  btn.classList.add('active');
+}
+</script>
 </body>
-
 </html>
