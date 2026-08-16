@@ -73,7 +73,10 @@ export const projects: Project[] = [
       "Implemented an alternative MCP server (FastMCP, stdio transport) as an interchangeable tool-calling backend for the financial data agent, demonstrating MCP as a transport-layer abstraction rather than a fixed dependency.",
     ],
     tags: ["Python", "Google ADK", "FastAPI", "MCP", "Supabase"],
-    links: [{ label: "Code", href: "#", icon: "github", status: "todo" }],
+    links: [
+      { label: "Report", href: "#", icon: "document", status: "todo" },
+      { label: "Code", href: "#", icon: "github", status: "todo" },
+    ],
   },
   {
     slug: "equity-volatility-garch-vs-ml",
@@ -115,7 +118,10 @@ export const projects: Project[] = [
     description:
       "C++ library implementing Black-Scholes, binomial trees, and Monte Carlo simulation for pricing European and American options. Computes option Greeks (delta, gamma, vega) with object-oriented design and smart pointers. Validated against analytical benchmarks across a range of strike prices and volatility parameters.",
     tags: ["C++", "CMake", "Monte Carlo", "Black-Scholes"],
-    links: [{ label: "Code", href: "#", icon: "github", status: "todo" }],
+    links: [
+      { label: "Report", href: "#", icon: "document", status: "todo" },
+      { label: "Code", href: "#", icon: "github", status: "todo" },
+    ],
   },
   {
     slug: "unet-microcontroller-segmentation",
@@ -125,7 +131,10 @@ export const projects: Project[] = [
     description:
       "TODO: Describe the U-Net architecture used, the microcontroller image dataset, the segmentation task and label classes, the training setup, and quantitative results (e.g. IoU / Dice score).",
     tags: ["Python", "PyTorch", "Computer Vision"],
-    links: [{ label: "Code", href: "#", icon: "github", status: "todo" }],
+    links: [
+      { label: "Report", href: "#", icon: "document", status: "todo" },
+      { label: "Code", href: "#", icon: "github", status: "todo" },
+    ],
     needsContent: true,
   },
 
@@ -141,7 +150,10 @@ export const projects: Project[] = [
       "Diagnosed overfitting via train/validation divergence and resolved it through an LR scheduler and early stopping, improving test SSIM from 0.527 to 0.567 and PSNR from 19.6dB to 20.75dB; identified and empirically confirmed that data augmentation was mathematically incompatible with the reconstruction objective.",
     ],
     tags: ["Python", "PyTorch", "Optuna", "scikit-image"],
-    links: [{ label: "Code", href: "#", icon: "github", status: "todo" }],
+    links: [
+      { label: "Report", href: "#", icon: "document", status: "todo" },
+      { label: "Code", href: "#", icon: "github", status: "todo" },
+    ],
   },
   {
     slug: "bayesian-cnn-diabetic-retinopathy",
@@ -152,7 +164,7 @@ export const projects: Project[] = [
       "Research paper on Bayesian convolutional neural networks for diabetic retinopathy classification from retinal fundus images, with a focus on uncertainty quantification for clinical decision support. TODO: add dataset, architecture, accuracy/AUC results, and calibration analysis.",
     tags: ["Python", "PyTorch", "Bayesian DL", "Medical Imaging"],
     links: [
-      { label: "Paper", href: "#", icon: "document", status: "todo" },
+      { label: "Report", href: "#", icon: "document", status: "todo" },
       { label: "Code", href: "#", icon: "github", status: "todo" },
     ],
     needsContent: true,
@@ -167,10 +179,11 @@ export const projects: Project[] = [
     tags: ["Python", "scikit-learn", "Regression"],
     links: [
       {
-        label: "Open full screen",
+        label: "Report",
         href: "/posters/forest-fire-poster.pdf",
         icon: "document",
       },
+      { label: "Code", href: "#", icon: "github", status: "todo" },
     ],
     image: {
       type: "image",
@@ -189,7 +202,7 @@ export const projects: Project[] = [
       "TODO: Summarize the LAPGAN architecture explored, the Laplacian pyramid generative approach, datasets/experiments run, and key findings.",
     tags: ["Python", "PyTorch", "GAN", "Generative Modelling"],
     links: [
-      { label: "Paper", href: "#", icon: "document", status: "todo" },
+      { label: "Report", href: "#", icon: "document", status: "todo" },
       { label: "Code", href: "#", icon: "github", status: "todo" },
     ],
     needsContent: true,

@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 export function Experience() {
   return (
     <section className="mb-13">
-      <SectionHeader index="01" title="Experience" />
+      <SectionHeader index="02" title="Experience" />
       <div className="flex flex-col gap-4">
         {experience.map((item) => (
           <Card key={item.company} hover className="p-5 sm:p-6">
@@ -17,7 +17,7 @@ export function Experience() {
               <div className="text-[13px] text-muted col-start-1 row-start-2 mb-2">
                 {item.role}
               </div>
-              <ul className="col-span-full flex flex-col gap-1.5 list-disc pl-4.5 marker:text-rule">
+              <ul className="col-span-full flex flex-col gap-1.5 list-disc pl-4.5 marker:text-accent-mid">
                 {item.bullets.map((bullet, i) => (
                   <li key={i} className="text-[13.5px] text-body leading-relaxed">
                     {bullet}

@@ -23,7 +23,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {project.bullets ? (
-        <ul className="mb-3 max-w-[37.5rem] flex flex-col gap-1.5 list-disc pl-4.5 marker:text-rule">
+        <ul className="mb-4 flex flex-col gap-1.5 list-disc pl-4.5 marker:text-accent-mid">
           {project.bullets.map((bullet, i) => (
             <li key={i} className="text-[13.5px] text-body leading-relaxed">
               {bullet}
@@ -31,27 +31,25 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
       ) : (
-        <p className="text-[13.5px] text-body leading-relaxed mb-3 max-w-[37.5rem]">
-          {project.description}
-        </p>
+        <p className="text-[13.5px] text-body leading-relaxed mb-4">{project.description}</p>
       )}
 
       {project.image && <PosterEmbed image={project.image} />}
 
-      <div className="flex justify-between items-center flex-wrap gap-2.5">
+      <div className="flex justify-between items-center flex-wrap gap-3 mt-1">
         <div className="flex flex-wrap gap-1.5">
           {project.tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-2">
           {project.links.map((link) => {
             const Icon = linkIcons[link.icon];
             if (link.status === "todo") {
               return (
                 <span
                   key={link.label}
-                  className="font-mono text-[11px] font-medium text-muted flex items-center gap-1 cursor-not-allowed"
+                  className="font-mono text-[11px] font-medium text-muted bg-surface-muted border border-rule px-2.5 py-1.5 rounded-md flex items-center gap-1.5 cursor-not-allowed opacity-60"
                   title="Coming soon"
                 >
                   <Icon className="w-3 h-3" />
@@ -65,7 +63,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 href={link.href}
                 target="_blank"
                 rel="noopener"
-                className="font-mono text-[11px] font-medium text-accent-mid flex items-center gap-1 hover:text-accent transition-colors"
+                className="font-mono text-[11px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2.5 py-1.5 rounded-md flex items-center gap-1.5 hover:bg-accent-subtle/70 hover:text-accent transition-colors"
               >
                 <Icon className="w-3 h-3" />
                 {link.label}

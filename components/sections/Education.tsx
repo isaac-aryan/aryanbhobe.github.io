@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 export function Education() {
   return (
     <section className="mb-13">
-      <SectionHeader index="02" title="Education" />
+      <SectionHeader index="01" title="Education" />
       <div className="flex flex-col gap-4">
         {education.map((item) => (
           <Card key={item.school} hover className="p-5 sm:p-6">

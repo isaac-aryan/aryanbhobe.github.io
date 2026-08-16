@@ -6,7 +6,7 @@ export function SectionHeader({ index, title }: { index?: string; title: string 
           {index}
         </span>
       )}
-      <h2 className="text-xl font-semibold text-strong tracking-tight whitespace-nowrap">
+      <h2 className="text-xl font-semibold text-accent-mid tracking-tight whitespace-nowrap">
         {title}
       </h2>
       <div className="flex-1 h-px bg-rule" />
