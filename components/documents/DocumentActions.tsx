@@ -7,7 +7,7 @@ export function DocumentActions() {
     <div className="w-full flex flex-col gap-3">
       {documents.map((doc) => (
         <div key={doc.id} className="w-full">
-          <div className="text-[11px] font-semibold text-muted uppercase tracking-wide mb-1.5">
+          <div className="font-mono text-[11px] font-medium text-muted uppercase tracking-wide mb-1.5">
             {doc.label}
           </div>
           <div className="flex gap-2">

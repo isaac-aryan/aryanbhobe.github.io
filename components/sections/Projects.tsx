@@ -5,7 +5,7 @@ import { ProjectTabs } from "@/components/projects/ProjectTabs";
 export function Projects() {
   return (
     <section className="mb-13">
-      <SectionHeader title="Projects" />
+      <SectionHeader index="04" title="Projects" />
       <ProjectTabs projects={projects} />
     </section>
   );

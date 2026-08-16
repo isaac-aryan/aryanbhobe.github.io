@@ -5,13 +5,13 @@ import { Card } from "@/components/ui/Card";
 export function Experience() {
   return (
     <section className="mb-13">
-      <SectionHeader title="Experience" />
+      <SectionHeader index="01" title="Experience" />
       <div className="flex flex-col gap-4">
         {experience.map((item) => (
           <Card key={item.company} hover className="p-5 sm:p-6">
             <div className="grid grid-cols-[1fr_auto] max-sidebar:grid-cols-1 gap-x-4 gap-y-1">
-              <div className="font-semibold text-strong text-[15px]">{item.company}</div>
-              <div className="text-xs text-muted whitespace-nowrap pt-0.5 col-start-2 row-start-1 max-sidebar:col-start-1 max-sidebar:row-auto">
+              <div className="font-semibold text-strong text-[15px] tracking-tight">{item.company}</div>
+              <div className="font-mono text-[11px] text-muted whitespace-nowrap pt-1 col-start-2 row-start-1 max-sidebar:col-start-1 max-sidebar:row-auto">
                 {item.date}
               </div>
               <div className="text-[13px] text-muted col-start-1 row-start-2 mb-2">

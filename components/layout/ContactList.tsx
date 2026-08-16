@@ -19,7 +19,7 @@ export function ContactList() {
               href={link.href}
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noopener" : undefined}
-              className="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs text-body overflow-hidden hover:bg-surface-muted hover:text-strong transition-colors"
+              className="flex items-center gap-2 px-2.5 py-1.5 rounded-md font-mono text-[11px] text-body overflow-hidden hover:bg-surface-muted hover:text-strong transition-colors"
             >
               <Icon className="w-3.5 h-3.5 shrink-0 text-muted" />
               <span className="whitespace-nowrap overflow-hidden text-ellipsis">

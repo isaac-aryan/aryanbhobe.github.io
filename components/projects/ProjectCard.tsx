@@ -14,10 +14,10 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card hover className="p-5 sm:p-6">
       <div className="flex justify-between items-start gap-3 mb-2">
-        <div className="font-semibold text-strong text-[15px] leading-snug">
+        <div className="font-semibold text-strong text-[15px] leading-snug tracking-tight">
           {project.name}
         </div>
-        <span className="text-[11px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2.5 py-1 rounded-full whitespace-nowrap shrink-0 backdrop-blur-sm">
+        <span className="font-mono text-[10px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2 py-1 rounded-md whitespace-nowrap shrink-0">
           {project.badge}
         </span>
       </div>
@@ -51,7 +51,7 @@ export function ProjectCard({ project }: { project: Project }) {
               return (
                 <span
                   key={link.label}
-                  className="text-xs font-medium text-muted flex items-center gap-1 cursor-not-allowed"
+                  className="font-mono text-[11px] font-medium text-muted flex items-center gap-1 cursor-not-allowed"
                   title="Coming soon"
                 >
                   <Icon className="w-3 h-3" />
@@ -65,7 +65,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 href={link.href}
                 target="_blank"
                 rel="noopener"
-                className="text-xs font-medium text-accent-mid flex items-center gap-1 hover:text-accent transition-colors"
+                className="font-mono text-[11px] font-medium text-accent-mid flex items-center gap-1 hover:text-accent transition-colors"
               >
                 <Icon className="w-3 h-3" />
                 {link.label}

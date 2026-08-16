@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #050505;
-  --color-surface: rgba(255, 255, 255, 0.035);
-  --color-surface-muted: rgba(255, 255, 255, 0.065);
-  --color-rule: rgba(255, 255, 255, 0.09);
-  --color-muted: #8b8b95;
-  --color-body: #d6d6db;
-  --color-strong: #f7f7f8;
-  --color-accent: #5b9df0;
-  --color-accent-hover: #78b0f5;
-  --color-accent-subtle: rgba(91, 157, 240, 0.1);
-  --color-accent-mid: #8fc0ff;
-  --color-accent-border: rgba(91, 157, 240, 0.3);
+  --color-bg: #000000;
+  --color-surface: #0c0c0e;
+  --color-surface-muted: #18181b;
+  --color-rule: rgba(255, 255, 255, 0.1);
+  --color-rule-strong: rgba(255, 255, 255, 0.2);
+  --color-muted: #86868f;
+  --color-body: #d1d1d6;
+  --color-strong: #ffffff;
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+  --color-accent-subtle: rgba(99, 102, 241, 0.12);
+  --color-accent-mid: #a5b4fc;
+  --color-accent-border: rgba(99, 102, 241, 0.4);
 }
 
 @theme inline {
@@ -20,6 +21,7 @@
   --color-surface: var(--color-surface);
   --color-surface-muted: var(--color-surface-muted);
   --color-rule: var(--color-rule);
+  --color-rule-strong: var(--color-rule-strong);
   --color-muted: var(--color-muted);
   --color-body: var(--color-body);
   --color-strong: var(--color-strong);
@@ -29,8 +31,8 @@
   --color-accent-mid: var(--color-accent-mid);
   --color-accent-border: var(--color-accent-border);
 
-  --font-serif: var(--font-lora);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 
   --breakpoint-sidebar: 800px;
 }
@@ -41,9 +43,12 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(91, 157, 240, 0.1), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 100% 20%, rgba(91, 157, 240, 0.05), transparent 55%),
-    var(--color-bg);
+  background: var(--color-bg);
+  background-image: radial-gradient(ellipse 800px 420px at 12% -8%, rgba(99, 102, 241, 0.07), transparent 60%);
   color: var(--color-body);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
 }
