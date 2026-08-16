@@ -14,12 +14,27 @@ export function Education() {
               <div className="font-mono text-[11px] text-muted whitespace-nowrap pt-1 col-start-2 row-start-1 max-sidebar:col-start-1 max-sidebar:row-auto">
                 {item.date}
               </div>
-              <div className="text-[13px] text-muted col-start-1 row-start-2 mb-2">
-                {item.degree}
-                {item.meta && <span> · {item.meta}</span>}
-              </div>
+              <div className="col-span-full text-[13px] text-body mt-1">{item.degree}</div>
+              {item.meta && (
+                <div className="col-span-full text-xs text-muted mt-0.5">{item.meta}</div>
+              )}
+
+              {item.years && (
+                <ul className="col-span-full flex flex-col gap-3 list-disc pl-4.5 marker:text-accent-mid mt-3">
+                  {item.years.map((y) => (
+                    <li key={y.year} className="text-[13.5px] leading-relaxed">
+                      <span className="text-strong font-medium">
+                        {y.year}
+                        {y.grade && ` — ${y.grade}`}
+                      </span>
+                      <div className="text-body text-[13px] mt-0.5">{y.subjects.join(", ")}</div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               {item.bullets && (
-                <ul className="col-span-full flex flex-col gap-1.5 list-disc pl-4.5 marker:text-accent-mid">
+                <ul className="col-span-full flex flex-col gap-1.5 list-disc pl-4.5 marker:text-accent-mid mt-3">
                   {item.bullets.map((bullet, i) => (
                     <li key={i} className="text-[13.5px] text-body leading-relaxed">
                       {bullet}
