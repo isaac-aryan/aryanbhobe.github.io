@@ -9,7 +9,7 @@ export const experience: ExperienceEntry[] = [
   {
     company: "Accenture",
     date: "Jun 2026 – Sep 2026",
-    role: "AI & Data Summer Analyst · London",
+    role: "AI & Data Summer Analyst · London, United Kingdom",
     bullets: [
       "Building production agentic AI pipelines on GCP using Google ADK with agentic RAG over a Supabase vector store; developed and configured MCP servers to expose enterprise tools and data sources to agent runtimes, with services built in FastAPI deployed via Cloud Run with Apigee governance, supporting a major UK telecommunications client.",
       "Architected a network-isolated enterprise RAG system on Azure for a major energy client: Azure AI Foundry and AI Search over confidential SharePoint data, Cosmos DB for memory persistence, React/FastAPI on App Service; all inter-service traffic enforced via VNet integration and private endpoints; researched productionisation pathway from prototype to secure enterprise deployment.",
@@ -18,7 +18,7 @@ export const experience: ExperienceEntry[] = [
   {
     company: "Merck Sharp & Dohme (MSD)",
     date: "Jun 2025 – Jun 2026",
-    role: "Machine Learning Scientist · London",
+    role: "Machine Learning Scientist · London, United Kingdom",
     bullets: [
       "Led independent ML research on a 550k-sample dataset across 18 relational tables; applied unsupervised learning (K-Means, GMM, HDBSCAN) with MCA dimensionality reduction to uncover clinically meaningful patient subtypes on GPU-accelerated HPC.",
       "Designed a systematic model selection framework using ARI agreement between K-Means and GMM, k-sweep and hyperparameter optimisation via BIC and silhouette scoring; validated cluster stability via bootstrap resampling and cross-referenced against HDBSCAN density-based clustering.",
