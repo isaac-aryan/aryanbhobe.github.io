@@ -8,10 +8,9 @@ export interface ContactLink {
 export const profile = {
   name: "Aryan Isaac Bhobe",
   roleLine:
-    "Computer Science & Artificial Intelligence · University of Bath",
-  roleSubline: "Quantitative Finance · Machine Learning",
-  avatar: "/images/avatar.png",
-  footer: "University of Bath · 2023 - 2027\nFirst Class Honours (1:1)",
+    "Computer Science & Artificial Intelligence Student at the University of Bath",
+  roleSubline: "Recent: AI & Data Summer Analyst at Accenture",
+  avatar: "/images/headshot.png",
   about:
     "Final-year Computer Science & Artificial Intelligence student at the University of Bath, building at the intersection of quantitative finance and machine learning. I have industry experience in ML research, deep learning engineering, and applied data science across pharmaceutical research and financial services. I am targeting roles in financial data science, quantitative analytics, and risk technology.",
 };
@@ -28,7 +27,7 @@ export const contactLinks: ContactLink[] = [
     icon: "phone",
   },
   {
-    label: "github.com/isaac-aryan",
+    label: "isaac-aryan",
     href: "https://github.com/isaac-aryan",
     icon: "github",
     external: true,
