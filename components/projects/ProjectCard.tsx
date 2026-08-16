@@ -1,7 +1,7 @@
 import type { Project } from "@/data/projects";
 import { Tag } from "@/components/ui/Tag";
 import { Card } from "@/components/ui/Card";
-import { PosterEmbed } from "@/components/projects/PosterEmbed";
+import { PosterEmbed } from "@/components/ui/PosterEmbed";
 import { DocumentIcon, GitHubIcon, ExternalLinkIcon } from "@/components/ui/icons";
 
 const linkIcons = {

@@ -1,7 +1,13 @@
 import Image from "next/image";
-import type { ProjectImage } from "@/data/projects";
 
-export function PosterEmbed({ image }: { image: ProjectImage }) {
+export interface PosterImage {
+  type: "image";
+  src: string;
+  alt: string;
+  linkHref?: string;
+}
+
+export function PosterEmbed({ image }: { image: PosterImage }) {
   const content = (
     <div className="relative w-full aspect-[4/3] overflow-hidden">
       <Image

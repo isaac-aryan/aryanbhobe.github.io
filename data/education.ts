@@ -22,12 +22,12 @@ export const education: EducationEntry[] = [
     years: [
       {
         year: "Year 1",
-        grade: "77.67% - First Class Honours (1:1)",
+        grade: "77.67% (1:1)",
         subjects: ["Artificial Intelligence, Computer Systems Architecture, Functional Programming with Haskell, Programming with Python, Discrete Mathematics, Linear Algebra, Cryptography, Databases with SQL"],
       },
       {
         year: "Year 2",
-        grade: "74.50% - First Class Honours (1:1)",
+        grade: "74.50% (1:1)",
         subjects: ["Advanced Artificial Intelligence, Machine Learning, Data Structures & Algorithms, Visual Computing, Software Engineering, Probability & Statistics"],
       },
       {
@@ -37,7 +37,7 @@ export const education: EducationEntry[] = [
       },
       {
         year: "Year 4",
-        grade: "Predicted - First Class Honours (1:1)",
+        grade: "Predicted: First Class Honours (1:1)",
         subjects: ["Bayesian Machine Learning, Reinforcement Learning, Natural Language Processing, Finance & Risk Management, Business Strategy, Dissertation in AI"],
       },
     ],

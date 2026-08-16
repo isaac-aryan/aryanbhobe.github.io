@@ -1,3 +1,5 @@
+import type { PosterImage } from "@/components/ui/PosterEmbed";
+
 export type ProjectCategory = "personal" | "university";
 
 export interface ProjectLink {
@@ -5,13 +7,6 @@ export interface ProjectLink {
   href: string;
   icon: "document" | "github" | "external";
   status?: "todo";
-}
-
-export interface ProjectImage {
-  type: "image";
-  src: string;
-  alt: string;
-  linkHref?: string;
 }
 
 export interface Project {
@@ -23,7 +18,7 @@ export interface Project {
   bullets?: string[];
   tags: string[];
   links: ProjectLink[];
-  image?: ProjectImage;
+  image?: PosterImage;
   needsContent?: boolean;
 }
 

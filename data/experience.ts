@@ -1,8 +1,11 @@
+import type { PosterImage } from "@/components/ui/PosterEmbed";
+
 export interface ExperienceEntry {
   company: string;
   date: string;
   role: string;
   bullets: string[];
+  poster?: PosterImage;
 }
 
 export const experience: ExperienceEntry[] = [
@@ -26,6 +29,12 @@ export const experience: ExperienceEntry[] = [
       "Deployed end-to-end proteomics QC pipelines adopted as the departmental standard: PCA-based outlier detection and KNN/Random Forest imputation on high-dimensional biological data, documented as a reproducible framework for biomedical agent training.",
       "Conducted longitudinal modelling across cohorts via regression, hierarchical clustering, and Jaccard similarity; applied hypothesis testing (t-test, chi-squared), contributing to a poster at the Boston neuroscience symposium.",
     ],
+    poster: {
+      type: "image",
+      src: "/posters/msd-placement-poster-preview.png",
+      alt: "MSD Machine Learning & Computational Biology Industrial Placement poster",
+      linkHref: "/posters/msd-placement-poster.pdf",
+    },
   },
   {
     company: "Spookfish Innovations",

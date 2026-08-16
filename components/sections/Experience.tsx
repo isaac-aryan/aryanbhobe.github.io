@@ -1,6 +1,7 @@
 import { experience } from "@/data/experience";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Card } from "@/components/ui/Card";
+import { PosterEmbed } from "@/components/ui/PosterEmbed";
 
 export function Experience() {
   return (
@@ -24,6 +25,11 @@ export function Experience() {
                   </li>
                 ))}
               </ul>
+              {item.poster && (
+                <div className="col-span-full max-w-[37.5rem]">
+                  <PosterEmbed image={item.poster} />
+                </div>
+              )}
             </div>
           </Card>
         ))}
