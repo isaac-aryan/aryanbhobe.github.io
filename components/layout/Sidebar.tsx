@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { profile } from "@/data/profile";
+import { SidebarNav } from "@/components/layout/SidebarNav";
 import { ContactList } from "@/components/layout/ContactList";
 import { DocumentActions } from "@/components/documents/DocumentActions";
 
@@ -23,6 +24,10 @@ export function Sidebar() {
         <br />
         {profile.roleSubline}
       </div>
+
+      <SidebarNav />
+
+      <div className="w-full h-px bg-rule mb-5 max-sidebar:hidden" />
 
       <ContactList />
 

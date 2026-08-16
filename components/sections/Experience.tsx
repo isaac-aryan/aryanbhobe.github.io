@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/Card";
 
 export function Experience() {
   return (
-    <section className="mb-13">
+    <section id="experience" className="mb-13 scroll-mt-8">
       <SectionHeader index="02" title="Experience" />
       <div className="flex flex-col gap-4">
         {experience.map((item) => (

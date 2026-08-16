@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 
 export function Skills() {
   return (
-    <section className="mb-13">
+    <section id="skills" className="mb-13 scroll-mt-8">
       <SectionHeader index="03" title="Skills" />
       <div className="grid grid-cols-2 max-sidebar:grid-cols-1 gap-4">
         {skills.map((group) => (
