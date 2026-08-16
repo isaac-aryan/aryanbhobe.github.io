@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #09090b;
+  --color-surface: #18181b;
+  --color-surface-muted: #27272a;
+  --color-rule: #27272a;
+  --color-muted: #a1a1aa;
+  --color-body: #d4d4d8;
+  --color-strong: #fafafa;
+  --color-accent: #4f8fd6;
+  --color-accent-hover: #6ba3e0;
+  --color-accent-subtle: #16233a;
+  --color-accent-mid: #7db4e8;
+  --color-accent-border: rgba(79, 143, 214, 0.35);
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-rule: var(--color-rule);
+  --color-muted: var(--color-muted);
+  --color-body: var(--color-body);
+  --color-strong: var(--color-strong);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-subtle: var(--color-accent-subtle);
+  --color-accent-mid: var(--color-accent-mid);
+  --color-accent-border: var(--color-accent-border);
+
+  --font-serif: var(--font-lora);
+  --font-sans: var(--font-inter);
+
+  --breakpoint-sidebar: 800px;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-body);
+}

@@ -1,0 +1,12 @@
+import { projects } from "@/data/projects";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ProjectTabs } from "@/components/projects/ProjectTabs";
+
+export function Projects() {
+  return (
+    <section className="mb-13">
+      <SectionHeader title="Projects" />
+      <ProjectTabs projects={projects} />
+    </section>
+  );
+}
