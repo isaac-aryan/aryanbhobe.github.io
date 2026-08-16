@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #09090b;
-  --color-surface: #18181b;
-  --color-surface-muted: #27272a;
-  --color-rule: #27272a;
-  --color-muted: #a1a1aa;
-  --color-body: #d4d4d8;
-  --color-strong: #fafafa;
-  --color-accent: #4f8fd6;
-  --color-accent-hover: #6ba3e0;
-  --color-accent-subtle: #16233a;
-  --color-accent-mid: #7db4e8;
-  --color-accent-border: rgba(79, 143, 214, 0.35);
+  --color-bg: #050505;
+  --color-surface: rgba(255, 255, 255, 0.035);
+  --color-surface-muted: rgba(255, 255, 255, 0.065);
+  --color-rule: rgba(255, 255, 255, 0.09);
+  --color-muted: #8b8b95;
+  --color-body: #d6d6db;
+  --color-strong: #f7f7f8;
+  --color-accent: #5b9df0;
+  --color-accent-hover: #78b0f5;
+  --color-accent-subtle: rgba(91, 157, 240, 0.1);
+  --color-accent-mid: #8fc0ff;
+  --color-accent-border: rgba(91, 157, 240, 0.3);
 }
 
 @theme inline {
@@ -41,6 +41,9 @@ html {
 }
 
 body {
-  background: var(--color-bg);
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(91, 157, 240, 0.1), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 20%, rgba(91, 157, 240, 0.05), transparent 55%),
+    var(--color-bg);
   color: var(--color-body);
 }

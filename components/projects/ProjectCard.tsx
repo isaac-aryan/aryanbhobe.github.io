@@ -1,5 +1,6 @@
 import type { Project } from "@/data/projects";
 import { Tag } from "@/components/ui/Tag";
+import { Card } from "@/components/ui/Card";
 import { PosterEmbed } from "@/components/projects/PosterEmbed";
 import { DocumentIcon, GitHubIcon, ExternalLinkIcon } from "@/components/ui/icons";
 
@@ -11,21 +12,31 @@ const linkIcons = {
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="py-5.5 border-b border-rule first:border-t">
+    <Card hover className="p-5 sm:p-6">
       <div className="flex justify-between items-start gap-3 mb-2">
         <div className="font-semibold text-strong text-[15px] leading-snug">
           {project.name}
         </div>
-        <span className="text-[11px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">
+        <span className="text-[11px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2.5 py-1 rounded-full whitespace-nowrap shrink-0 backdrop-blur-sm">
           {project.badge}
         </span>
       </div>
 
-      <p className="text-[13.5px] text-body leading-relaxed mb-3 max-w-[37.5rem]">
-        {project.description}
-      </p>
+      {project.bullets ? (
+        <ul className="mb-3 max-w-[37.5rem] flex flex-col gap-1.5 list-disc pl-4.5 marker:text-rule">
+          {project.bullets.map((bullet, i) => (
+            <li key={i} className="text-[13.5px] text-body leading-relaxed">
+              {bullet}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-[13.5px] text-body leading-relaxed mb-3 max-w-[37.5rem]">
+          {project.description}
+        </p>
+      )}
 
-      {project.embed && <PosterEmbed embed={project.embed} />}
+      {project.image && <PosterEmbed image={project.image} />}
 
       <div className="flex justify-between items-center flex-wrap gap-2.5">
         <div className="flex flex-wrap gap-1.5">
@@ -63,6 +74,6 @@ export function ProjectCard({ project }: { project: Project }) {
           })}
         </div>
       </div>
-    </div>
+    </Card>
   );
 }

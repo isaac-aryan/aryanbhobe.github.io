@@ -1,15 +1,16 @@
 import { skills } from "@/data/skills";
 import { Tag } from "@/components/ui/Tag";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Card } from "@/components/ui/Card";
 
 export function Skills() {
   return (
     <section className="mb-13">
       <SectionHeader title="Skills" />
-      <div className="grid grid-cols-2 max-sidebar:grid-cols-1 gap-x-8 gap-y-5">
+      <div className="grid grid-cols-2 max-sidebar:grid-cols-1 gap-4">
         {skills.map((group) => (
-          <div key={group.label}>
-            <div className="text-[11px] font-semibold text-muted uppercase tracking-wide mb-2.5">
+          <Card key={group.label} hover className="p-5">
+            <div className="text-[11px] font-semibold text-muted uppercase tracking-wide mb-3">
               {group.label}
             </div>
             <div className="flex flex-wrap gap-1.5">
@@ -17,7 +18,7 @@ export function Skills() {
                 <Tag key={skill}>{skill}</Tag>
               ))}
             </div>
-          </div>
+          </Card>
         ))}
       </div>
     </section>

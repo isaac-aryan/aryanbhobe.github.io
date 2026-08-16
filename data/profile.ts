@@ -23,7 +23,7 @@ export const contactLinks: ContactLink[] = [
     icon: "mail",
   },
   {
-    label: "+44 7473967442",
+    label: "+44 7473 967442",
     href: "tel:+447473967442",
     icon: "phone",
   },
