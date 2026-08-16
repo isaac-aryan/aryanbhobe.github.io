@@ -9,7 +9,7 @@ export const profile = {
   name: "Aryan Isaac Bhobe",
   roleLine:
     "CS + AI @ Bath",
-  roleSubline: "Recent: AI & Data Summer Analyst @ Accenture",
+  roleSubline: "Recent: AI & Data @ Accenture",
   avatar: "/images/headshot.jpg",
   footer: "",
   about:
