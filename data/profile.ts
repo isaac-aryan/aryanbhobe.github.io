@@ -12,6 +12,7 @@ export const profile = {
   roleSubline: "Recent: AI & Data @ Accenture",
   avatar: "/images/headshot.jpg",
   footer: "",
+  tagline: "Building at the intersection of quantitative finance and machine learning.",
   about:
     "Final-year Computer Science & Artificial Intelligence student at the University of Bath, building at the intersection of quantitative finance and machine learning. I have industry experience in ML research, deep learning engineering, and applied data science across pharmaceutical research and financial services. I am targeting roles in financial data science, quantitative analytics, and risk technology.",
 };

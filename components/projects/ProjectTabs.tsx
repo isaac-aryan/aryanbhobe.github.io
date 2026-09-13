@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import type { Project, ProjectCategory } from "@/data/projects";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 
@@ -11,6 +12,7 @@ const categories: { id: ProjectCategory; label: string }[] = [
 
 export function ProjectTabs({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<ProjectCategory>("personal");
+  const activeProjects = projects.filter((project) => project.category === active);
 
   return (
     <div>
@@ -26,30 +28,38 @@ export function ProjectTabs({ projects }: { projects: Project[] }) {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActive(category.id)}
-              className={`font-mono text-[13px] font-medium px-4.5 py-1.5 rounded-md transition-colors ${
-                isActive ? "bg-accent text-white" : "text-muted hover:text-body"
+              className={`relative font-mono text-[13px] font-medium px-4.5 py-1.5 rounded-md transition-colors ${
+                isActive ? "text-white" : "text-muted hover:text-body"
               }`}
             >
+              {isActive && (
+                <motion.div
+                  layoutId="active-tab-pill"
+                  className="absolute inset-0 -z-10 bg-accent rounded-md"
+                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                />
+              )}
               {category.label}
             </button>
           );
         })}
       </div>
 
-      {categories.map((category) => (
-        <div
-          key={category.id}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
           role="tabpanel"
-          hidden={active !== category.id}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col gap-4"
         >
-          {projects
-            .filter((project) => project.category === category.id)
-            .map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-        </div>
-      ))}
+          {activeProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

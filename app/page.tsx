@@ -1,4 +1,6 @@
-import { Sidebar } from "@/components/layout/Sidebar";
+import { TopNav } from "@/components/layout/TopNav";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
 import { Education } from "@/components/sections/Education";
@@ -7,15 +9,17 @@ import { Projects } from "@/components/sections/Projects";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-[260px_1fr] max-sidebar:grid-cols-1 min-h-screen">
-      <Sidebar />
-      <main className="px-15 pt-14 pb-20 max-sidebar:px-5 max-sidebar:pt-8 max-sidebar:pb-15">
+    <>
+      <TopNav />
+      <Hero />
+      <main className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 pb-24">
         <About />
         <Education />
         <Experience />
         <Skills />
         <Projects />
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }

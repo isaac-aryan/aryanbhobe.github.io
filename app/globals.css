@@ -34,21 +34,39 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --breakpoint-sidebar: 800px;
+  --breakpoint-stack: 800px;
 }
 
 html {
-  scroll-behavior: smooth;
   color-scheme: dark;
 }
 
 body {
   background: var(--color-bg);
-  background-image: radial-gradient(ellipse 800px 420px at 12% -8%, rgba(99, 102, 241, 0.07), transparent 60%);
   color: var(--color-body);
+  overflow-x: clip;
 }
 
 ::selection {
   background: var(--color-accent);
   color: white;
+}
+
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4%, 6%) scale(1.08); }
+}
+
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-5%, -4%) scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
