@@ -22,7 +22,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const rotateY = useSpring(rawRotateY, { stiffness: 300, damping: 30 });
   const spotX = useMotionValue(0);
   const spotY = useMotionValue(0);
-  const spotlight = useMotionTemplate`radial-gradient(240px circle at ${spotX}px ${spotY}px, rgba(99,102,241,0.12), transparent 70%)`;
+  const spotlight = useMotionTemplate`radial-gradient(240px circle at ${spotX}px ${spotY}px, rgba(76,106,146,0.14), transparent 70%)`;
 
   function handleMouseMove(e: MouseEvent<HTMLDivElement>) {
     const rect = ref.current?.getBoundingClientRect();
@@ -46,34 +46,34 @@ export function ProjectCard({ project }: { project: Project }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ rotateX, rotateY, transformPerspective: 800 }}
-      className="group relative rounded-lg border border-rule bg-surface p-5 sm:p-6 transition-colors duration-150 hover:border-accent-border hover:bg-surface-muted"
+      className="group relative py-8 sm:py-10"
     >
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{ background: spotlight }}
       />
 
       <div className="relative">
         <div className="flex justify-between items-start gap-3 mb-2">
-          <div className="font-semibold text-strong text-[15px] leading-snug tracking-tight">
+          <div className="font-serif text-xl sm:text-2xl font-medium text-strong leading-snug tracking-tight">
             {project.name}
           </div>
-          <span className="font-mono text-[10px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2 py-1 rounded-md whitespace-nowrap shrink-0">
+          <span className="font-sans text-[10px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2 py-1 rounded-sm whitespace-nowrap shrink-0">
             {project.badge}
           </span>
         </div>
 
         {project.bullets ? (
-          <ul className="mb-4 flex flex-col gap-1.5 list-disc pl-4.5 marker:text-accent-mid">
+          <ul className="mb-4 flex flex-col gap-2 list-disc pl-4.5 marker:text-accent-mid">
             {project.bullets.map((bullet, i) => (
-              <li key={i} className="text-[13.5px] text-body leading-relaxed">
+              <li key={i} className="text-[15px] text-body leading-relaxed">
                 {bullet}
               </li>
             ))}
           </ul>
         ) : (
-          <p className="text-[13.5px] text-body leading-relaxed mb-4">{project.description}</p>
+          <p className="text-[15px] text-body leading-relaxed mb-4">{project.description}</p>
         )}
 
         {project.image && <PosterEmbed image={project.image} />}
@@ -91,7 +91,7 @@ export function ProjectCard({ project }: { project: Project }) {
                 return (
                   <span
                     key={link.label}
-                    className="font-mono text-[11px] font-medium text-muted bg-surface-muted border border-rule px-2.5 py-1.5 rounded-md flex items-center gap-1.5 cursor-not-allowed opacity-60"
+                    className="font-sans text-[11px] font-medium text-muted bg-surface-muted border border-rule px-2.5 py-1.5 rounded-sm flex items-center gap-1.5 cursor-not-allowed opacity-60"
                     title="Coming soon"
                   >
                     <Icon className="w-3 h-3" />
@@ -105,7 +105,7 @@ export function ProjectCard({ project }: { project: Project }) {
                   href={link.href}
                   target="_blank"
                   rel="noopener"
-                  className="font-mono text-[11px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2.5 py-1.5 rounded-md flex items-center gap-1.5 hover:bg-accent-subtle/70 hover:text-accent transition-colors"
+                  className="font-sans text-[11px] font-medium text-accent-mid bg-accent-subtle border border-accent-border px-2.5 py-1.5 rounded-sm flex items-center gap-1.5 hover:bg-accent-subtle/70 hover:text-accent transition-colors"
                 >
                   <Icon className="w-3 h-3" />
                   {link.label}

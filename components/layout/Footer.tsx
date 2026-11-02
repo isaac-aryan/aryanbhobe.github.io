@@ -24,7 +24,7 @@ export function Footer() {
                 target={link.external ? "_blank" : undefined}
                 rel={link.external ? "noopener" : undefined}
                 aria-label={link.label}
-                className="flex items-center justify-center w-9 h-9 rounded-md text-muted hover:text-accent-mid hover:bg-surface-muted transition-colors"
+                className="flex items-center justify-center w-9 h-9 rounded-sm text-muted hover:text-accent-mid hover:bg-surface-muted transition-colors"
               >
                 <Icon className="w-4 h-4" />
               </a>
@@ -34,7 +34,7 @@ export function Footer() {
 
         <a
           href="#hero"
-          className="font-mono text-xs text-muted hover:text-accent-mid transition-colors"
+          className="font-sans text-xs text-muted hover:text-accent-mid transition-colors"
         >
           Back to top ↑
         </a>

@@ -9,8 +9,8 @@ export const documents: DocumentEntry[] = [
   {
     id: "cv",
     label: "CV",
-    fileName: "AryanBhobe_CV.pdf",
-    href: "/documents/AryanBhobe_CV.pdf",
+    fileName: "AryanIsaacBhobe.pdf",
+    href: "/documents/AryanIsaacBhobe.pdf",
   },
   {
     id: "transcript",

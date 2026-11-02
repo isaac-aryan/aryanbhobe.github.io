@@ -1,15 +1,13 @@
-export function SectionHeader({ index, title }: { index?: string; title: string }) {
+export function SectionHeader({ title }: { title: string }) {
   return (
-    <div className="flex items-baseline gap-3 mb-6">
-      {index && (
-        <span className="font-mono text-xs text-accent-mid tracking-wider shrink-0">
-          {index}
-        </span>
-      )}
-      <h2 className="text-xl font-semibold text-accent-mid tracking-tight whitespace-nowrap">
+    <div className="mb-10 sm:mb-14">
+      <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-strong tracking-tight">
         {title}
       </h2>
-      <div className="flex-1 h-px bg-rule" />
+      <div
+        className="mt-5 h-[3px] w-14"
+        style={{ background: "var(--gradient-accent)" }}
+      />
     </div>
   );
 }

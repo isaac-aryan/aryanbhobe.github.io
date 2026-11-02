@@ -18,7 +18,7 @@ export function ProjectTabs({ projects }: { projects: Project[] }) {
     <div>
       <div
         role="tablist"
-        className="inline-flex bg-surface-muted border border-rule rounded-lg p-1 mb-6 gap-0.5"
+        className="inline-flex bg-surface-muted border border-rule rounded-sm p-1 mb-6 gap-0.5"
       >
         {categories.map((category) => {
           const isActive = active === category.id;
@@ -28,14 +28,19 @@ export function ProjectTabs({ projects }: { projects: Project[] }) {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActive(category.id)}
-              className={`relative font-mono text-[13px] font-medium px-4.5 py-1.5 rounded-md transition-colors ${
-                isActive ? "text-white" : "text-muted hover:text-body"
+              className={`relative font-sans text-[13px] font-medium px-4.5 py-1.5 rounded-sm transition-colors ${
+                isActive ? "text-strong" : "text-muted hover:text-body"
               }`}
             >
               {isActive && (
                 <motion.div
                   layoutId="active-tab-pill"
-                  className="absolute inset-0 -z-10 bg-accent rounded-md"
+                  className="absolute inset-0 -z-10 rounded-sm"
+                  style={{
+                    background: "var(--gradient-accent)",
+                    backgroundSize: "200% 200%",
+                    animation: "gradient-pan 10s ease-in-out infinite alternate",
+                  }}
                   transition={{ type: "spring", stiffness: 400, damping: 32 }}
                 />
               )}
@@ -53,7 +58,7 @@ export function ProjectTabs({ projects }: { projects: Project[] }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col gap-4"
+          className="flex flex-col divide-y divide-rule"
         >
           {activeProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />

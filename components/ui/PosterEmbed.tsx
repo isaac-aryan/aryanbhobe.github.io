@@ -31,7 +31,7 @@ export function PosterEmbed({ image }: { image: PosterImage }) {
         >
           {content}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs font-medium text-white bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs font-medium text-white bg-black/60 px-3 py-1.5 rounded-sm backdrop-blur-sm">
               Open full screen
             </span>
           </div>

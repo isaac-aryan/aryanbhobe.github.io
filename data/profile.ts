@@ -10,7 +10,7 @@ export const profile = {
   roleLine:
     "CS + AI @ Bath",
   roleSubline: "Recent: AI & Data @ Accenture",
-  avatar: "/images/headshot.jpg",
+  avatar: "/images/headshot2026.jpeg",
   footer: "",
   tagline: "Building at the intersection of quantitative finance and machine learning.",
   about:
