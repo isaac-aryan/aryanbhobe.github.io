@@ -102,6 +102,14 @@ body {
   100% { background-position: 100% 50%; }
 }
 
+.nav-light-boost {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme="dark"] .nav-light-boost {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

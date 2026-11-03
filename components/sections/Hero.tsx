@@ -53,15 +53,6 @@ export function Hero() {
         </motion.div>
 
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="font-sans text-xs uppercase tracking-wide text-accent-mid mb-5"
-          >
-            {profile.roleLine}
-          </motion.div>
-
           <h1 className="font-serif font-semibold text-strong tracking-tight text-5xl sm:text-6xl lg:text-7xl leading-[0.98] mb-6">
             {nameWords.map((word, i) => (
               <motion.span

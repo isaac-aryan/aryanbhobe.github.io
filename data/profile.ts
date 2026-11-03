@@ -7,8 +7,6 @@ export interface ContactLink {
 
 export const profile = {
   name: "Aryan Isaac Bhobe",
-  roleLine:
-    "CS + AI @ Bath",
   avatar: "/images/headshot2026.jpeg",
   footer: "",
   tagline: "Applied AI and machine learning for complex industry problems.",
