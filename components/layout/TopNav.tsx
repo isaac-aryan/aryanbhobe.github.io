@@ -7,6 +7,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 const navItems = [
   { href: "#education", label: "Education" },
   { href: "#experience", label: "Experience" },
+  { href: "#volunteering", label: "Volunteering" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
 ];
@@ -14,9 +15,9 @@ const navItems = [
 export function TopNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
-  const background = useTransform(scrollY, [0, 120], ["rgba(10,10,9,0.45)", "rgba(8,8,7,0.82)"]);
-  const borderColor = useTransform(scrollY, [0, 120], ["rgba(255,255,255,0.06)", "rgba(255,255,255,0.12)"]);
-  const backdropBlur = useTransform(scrollY, [0, 120], ["blur(10px)", "blur(18px)"]);
+  const background = useTransform(scrollY, [0, 120], ["rgba(10,10,9,0.18)", "rgba(8,8,7,0.4)"]);
+  const borderColor = useTransform(scrollY, [0, 120], ["rgba(255,255,255,0.04)", "rgba(255,255,255,0.08)"]);
+  const backdropBlur = useTransform(scrollY, [0, 120], ["blur(8px)", "blur(16px)"]);
 
   return (
     <motion.header
@@ -30,7 +31,7 @@ export function TopNav() {
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 h-16 flex items-center justify-between">
         <a href="#hero" className="font-serif text-base font-medium tracking-tight">
-          Aryan Bhobe
+          AIB
         </a>
 
         <nav className="hidden sm:block">

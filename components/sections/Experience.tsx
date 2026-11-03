@@ -6,6 +6,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { PosterEmbed } from "@/components/ui/PosterEmbed";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionGlow } from "@/components/ui/SectionGlow";
+import { CompanyLogo } from "@/components/ui/CompanyLogo";
 
 export function Experience() {
   return (
@@ -27,8 +28,11 @@ export function Experience() {
                   index !== 0 ? "border-t border-rule" : ""
                 }`}
               >
-                <div className="font-serif text-2xl sm:text-3xl font-medium text-strong tracking-tight">
-                  {item.company}
+                <div className="flex items-center gap-3">
+                  {item.logo && <CompanyLogo src={item.logo} alt={`${item.company} logo`} />}
+                  <span className="font-serif text-2xl sm:text-3xl font-medium text-strong tracking-tight">
+                    {item.company}
+                  </span>
                 </div>
                 <div className="font-sans text-xs uppercase tracking-wide text-muted tabular-nums whitespace-nowrap pt-2 col-start-2 row-start-1 max-stack:col-start-1 max-stack:row-auto">
                   {item.date}

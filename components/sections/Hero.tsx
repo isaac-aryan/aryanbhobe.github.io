@@ -60,7 +60,6 @@ export function Hero() {
             className="font-sans text-xs uppercase tracking-wide text-accent-mid mb-5"
           >
             {profile.roleLine}
-            <span className="text-muted"> · {profile.roleSubline}</span>
           </motion.div>
 
           <h1 className="font-serif font-semibold text-strong tracking-tight text-5xl sm:text-6xl lg:text-7xl leading-[0.98] mb-6">

@@ -9,12 +9,11 @@ export const profile = {
   name: "Aryan Isaac Bhobe",
   roleLine:
     "CS + AI @ Bath",
-  roleSubline: "Recent: AI & Data @ Accenture",
   avatar: "/images/headshot2026.jpeg",
   footer: "",
-  tagline: "Building at the intersection of quantitative finance and machine learning.",
+  tagline: "Applied AI and machine learning for complex industry problems.",
   about:
-    "Final-year Computer Science & Artificial Intelligence student at the University of Bath, building at the intersection of quantitative finance and machine learning. I have industry experience in ML research, deep learning engineering, and applied data science across pharmaceutical research and financial services. I am targeting roles in financial data science, quantitative analytics, and risk technology.",
+    "Final-year Computer Science & Artificial Intelligence student at the University of Bath. I build machine learning and AI systems on complex, real-world data, from defence and supply chains to biomedical and financial data, working directly with the teams who own the problem. Recent work includes agentic AI pipelines for enterprise clients at Accenture and patient stratification research on clinical data at MSD.",
 };
 
 export const contactLinks: ContactLink[] = [
